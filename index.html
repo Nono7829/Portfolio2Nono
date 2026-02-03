@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porfolio de Nono</title>
+    <title>Portfolio Nono - Développeur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="navigation">
-            <nav>
-                <a href="#">Languages</a>
-                <a href="#">Projects</a>
-                <a href="#">Contacts</a>
-            </nav>
-        </div>
-    </header>
-    <section class="main-page">
-        <h1>Hello, I'm Nono.</h1>
-        <div>
-            <nav class="language-code-style">
-                <h2>I code in</h2>
-                <h2 id="language-code-id"></h2>
-            </nav>
-        </div>
-    </section>
+
+    <nav>
+        <a href="#langages">Langages</a>
+        <a href="#projets">Projets</a>
+        <a href="#contacts">Contacts</a>
+    </nav>
+
+    <main>
+        <section class="text-content">
+            <h1>I'm Nono</h1>
+            
+            <div class="hero-subtitle">
+                <span class="static-text">I code in</span>
+                
+                <div class="scrolling-words-container">
+                    <div class="scrolling-words-box">
+                        <span>Python</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                        <span>PHP</span>
+                        <span>C#</span>
+                        <span>BluePrint</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="image-content">
+            <div class="goku-container js-tilt">
+                <img src="img/goku.png" alt="Goku Developer" class="goku-image">
+            </div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

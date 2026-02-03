@@ -1,8 +1,301 @@
+/* --- CONFIGURATION GLOBALE --- */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --text-white: #ffffff;
+    --accent-cyan: #00f2ff;
+    --text-muted: #a0a0a0;
+    --subtitle-height: 1.2em;
+}
+
 * {
     margin: 0;
-    cursor: crosshair;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    /* background: radial-gradient(#00ffcc 0%, #000000 100%); */
+    background: radial-gradient(circle at top left, var(--bg-dark), var(--bg-darker));
+    color: var(--text-white);
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    display: flex;
+    gap: 40px;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 12px rgba(0, 242, 255, 0.6);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    right: 0;
+    background-color: var(--accent-cyan);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    height: 100%;
+}
+
+.text-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- TYPOGRAPHIE ET SCROLLER --- */
+h1 {
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    display: flex;
+    align-items: flex-end;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    height: var(--subtitle-height);
+    overflow: hidden;
+}
+
+.static-text {
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.scrolling-words-container {
+    height: var(--subtitle-height);
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+}
+
+.scrolling-words-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.scrolling-words-box span {
+    display: block;
+    height: var(--subtitle-height);
+    line-height: var(--subtitle-height);
+    color: var(--accent-cyan);
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+    padding-left: 5px;
+}
+
+/* --- IMAGE GOKU POPOUT (CORRECTION FINALE) --- */
+
+.goku-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(0, 242, 255, 0.3), inset 0 0 40px rgba(0, 242, 255, 0.2);
+    /* On laisse overflow visible pour que la tête dépasse en haut */
+    overflow: visible;
+    transition: transform 0.1s ease-out;
+}
+
+.goku-image {
+    position: absolute;
+    /* LARGEUR : On met 100% pour que l'image fasse exactement la largeur du cercle */
+    width: 100%;
+    height: auto;
+
+    /* POSITION : On colle l'image tout en bas du cercle */
+    bottom: 0;
+    left: 0;
+
+    /* QUALITÉ */
+    image-rendering: -webkit-optimize-contrast;
+    filter: grayscale(100%) contrast(1.1);
+
+    /* FORME : 
+       0 en haut gauche/droite (laisse passer la tête)
+       50% en bas gauche/droite (suit parfaitement le cercle car width = 100%)
+    */
+    border-radius: 0 0 50% 50%;
+
+    /* Sécurité : Si l'image PNG a un peu de marge blanche en bas, on la décale de 1px */
+    transform: translateY(1px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        text-align: center;
+    }
+
+    nav {
+        top: 20px;
+        right: 20px;
+        gap: 20px;
+    }
+
+    .text-content {
+        flex: unset;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 2.5rem;
+        justify-content: center;
+    }
+
+    .goku-container {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* =========================================
+   VERSION MOBILE (RESPONSIVE)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    
+    /* 1. On libère le scroll */
+    /* Sur mobile, le contenu dépasse souvent la hauteur de l'écran */
+    body {
+        overflow-y: auto; /* Autorise le défilement vertical */
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px; /* Marge en bas pour respirer */
+    }
+
+    /* 2. Navigation */
+    /* On la détache du coin pour la centrer en haut */
+    nav {
+        position: relative; /* Plus d'absolute positionning */
+        top: 0;
+        right: 0;
+        width: 100%;
+        justify-content: center; /* Centre les liens */
+        padding: 30px 0;
+        margin-bottom: 20px;
+    }
+
+    nav a {
+        font-size: 0.9rem; /* Un peu plus petit */
+        gap: 20px;
+    }
+
+    /* 3. Structure principale */
+    /* On passe de gauche-droite à haut-bas */
+    main {
+        flex-direction: column;
+        justify-content: flex-start; /* Commence en haut */
+        padding: 0 20px;
+        gap: 60px; /* Espace entre le texte et l'image */
+    }
+
+    /* 4. Texte (Section du haut) */
+    .text-content {
+        text-align: center; /* Tout centrer */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 4rem; /* Réduction de la taille du titre */
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 2rem; /* Réduction du sous-titre */
+        justify-content: center; /* Centre le "I code in" et les mots */
+    }
+
+    .scrolling-words-container {
+        /* Ajustement de la largeur pour éviter les coupures */
+        min-width: 120px; 
+        text-align: left; /* Le mot qui défile reste aligné à gauche par rapport à "I code in" */
+    }
+
+    /* 5. Image (Section du bas) */
+    /* On réduit le cercle proportionnellement à l'écran */
+    .goku-container {
+        width: 300px;  /* Taille adaptée aux mobiles */
+        height: 300px;
+        margin: 0 auto; /* Centré horizontalement */
+        
+        /* On désactive le mouvement de la souris (Tilt) sur mobile 
+           car ça peut gêner le scroll tactile */
+        transform: none !important; 
+    }
+
+    /* L'image s'adaptera automatiquement car elle est en width: 100% dans le code principal */
+    .goku-image {
+        /* Petite sécurité pour le mobile */
+        bottom: 0;
+    }
+}
+
+/* Pour les très petits écrans (anciens téléphones) */
+@media (max-width: 380px) {
+    .goku-container {
+        width: 250px;
+        height: 250px;
+    }
+    h1 { font-size: 3rem; }
 }
