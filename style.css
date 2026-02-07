@@ -526,3 +526,11 @@ nav a.active::after {
 .project-link:hover::after {
     width: 100%;
 }
+
+.project-meta {
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}

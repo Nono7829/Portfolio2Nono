@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "BluePrint",
             img: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAiZAAZAA0",
             level: 4
+        },
+        {
+            name: "Batch",
+            img: "https://cdn-icons-png.flaticon.com/512/5261/5261229.png",
+            level: 1
         }
     ];
 
@@ -53,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         4: "#00ff88", // Vert
         5: "#00f2ff"  // Cyan
     };
+
+    skillsData.sort((a, b) => a.name.localeCompare(b.name));
+    skillsData.sort((a, b) => b.level - a.level);
 
     const gridContainer = document.getElementById('languages-grid');
 

@@ -8,102 +8,122 @@ document.addEventListener('DOMContentLoaded', () => {
         "PHP": "https://cdn-icons-png.flaticon.com/512/5968/5968332.png",
         "C#": "https://img.icons8.com/color/512/c-sharp-logo.png",
         "BluePrint": "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAiZAAZAA0",
-        "SQL": "https://cdn-icons-png.flaticon.com/512/4248/4248443.png"
+        "Batch": "https://cdn-icons-png.flaticon.com/512/5261/5261229.png"
     };
 
     const projectsData = [
         {
             name: "Patch FR - Yo-kai Watch Blasters 2",
-            desc: "Voici mon premier projet, la réalisation d'un patch de traduction en équipe, pour le jeu Yo-kai Watch Blasters 2 sur Nintendo 3DS.",
+            desc: "My first project: a team translation patch for the game Yo-kai Watch Blasters 2 on Nintendo 3DS.",
             img: "../img/b2.png",
             stack: [],
-            link: "https://discord.gg/p2YraVYGBd"
+            link: "https://discord.gg/p2YraVYGBd",
+            begin: "Oct 23, 2023",
+            end: "Feb 22, 2026"
         },
         {
             name: "Yo-Trad Tools",
-            desc: "Des outils ayant servi à la création du patch de traduction pour Yo-kai Watch Blasters 2, comprenant un éditeur de texte et un outil de gestion des fichiers de jeu.",
+            desc: "Tools created to help with the Yo-kai Watch Blasters 2 translation patch, including a text editor and file management tools.",
             img: "../img/yo-trad_tools.png",
-            stack: ["Python"],
-            link: "https://github.com/YoTradWatchTeam/Yo-Trad-Tools"
+            stack: ["Batch", "Python"],
+            link: "https://github.com/YoTradWatchTeam/Yo-Trad-Tools",
+            begin: "Mar 12, 2025",
+            end: "Apr 9, 2025"
         },
         {
             name: "Flappy Bird",
-            desc: "Le premier jeu que j'ai développé, sur Unity, une réplique du célèbre Flappy Bird avec des graphismes en HD.",
+            desc: "The first game I developed on Unity, a replica of the famous Flappy Bird with HD graphics.",
             img: "../img/Flappy_Bird_icon.png",
             stack: ["C#"],
-            link: "https://github.com/Nono7829/FlappyBird"
-        },
-        {
-            name: "Zombie Kill",
-            desc: "Mon premier jeu sur Unreal Engine, lors d'un stage dans le Gaming Campus de la Défense.",
-            img: "../img/Zombie_Kill.png",
-            stack: ["BluePrint"],
-            link: "https://github.com/Nono7829/ZombieKill"
+            link: "https://github.com/Nono7829/FlappyBird",
+            begin: "May 18, 2025",
+            end: "Jun 5, 2025"
         },
         {
             name: "Flappy Bird JS",
-            desc: "Mon premier jeu en JavaScript, pour un devoir de NSI.",
+            desc: "My first game in JavaScript, created for a Computer Science school assignment.",
             img: "../img/Flappy_Bird_icon.png",
             stack: ["HTML", "CSS", "JavaScript"],
-            link: "https://github.com/Nono7829/Flappy-Bird-JS"
+            link: "https://github.com/Nono7829/Flappy-Bird-JS",
+            begin: "Jun 16, 2025",
+            end: "Jan 25, 2026"
         },
         {
-            name: "BlendHleper",
-            desc: "Un outil d'aide pour l'application Blender.",
-            img: "../img/BlendHelper.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/BlendHelper"
+            name: "Zombie Kill",
+            desc: "My first game on Unreal Engine, developed during an internship at the Gaming Campus in La Défense.",
+            img: "../img/Zombie_Kill.png",
+            stack: ["BluePrint"],
+            link: "https://github.com/Nono7829/ZombieKill",
+            begin: "Jul 15, 2025",
+            end: "Jul 18, 2025"
         },
         {
             name: "EquaSolve",
-            desc: "Un outil de résolution d'équations mathématiques.",
+            desc: "A tool designed to solve mathematical equations.",
             img: "../img/EquaSolve.png",
             stack: ["Python"],
-            link: "https://github.com/Nono7829/EquaSolve"
-        },
-        {
-            name: "PHP-INTERPRETER",
-            desc: "Un interpréteur PHP en Python.",
-            img: "../img/PHP-INTERPRETER.png",
-            stack: ["HTML", "CSS", "JavaScript", "PHP"],
-            link: "https://github.com/Nono7829/PHP-INTERPRETER"
-        },
-        {
-            name: "PHP-INTERPRETER",
-            desc: "Un interpréteur PHP en Python.",
-            img: "../img/PHP-INTERPRETER.png",
-            stack: ["HTML", "CSS", "JavaScript", "PHP"],
-            link: "https://github.com/Nono7829/PHP-INTERPRETER"
-        },
-        {
-            name: "ProjStruct",
-            desc: "Un outil affichant la structure d'un projet.",
-            img: "../img/ProjStruct.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/ProjStruct"
-        },
-        {
-            name: "HTMLCleaner",
-            desc: "Un outil nettoyant le code HTML et CSS d'un projet.",
-            img: "../img/HTMLCleaner.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/HTMLCleaner"
-        },
-        {
-            name: "Batch-Image-Compressor",
-            desc: "Un outil compressant les images d'un dossier.",
-            img: "../img/Batch-Image-Compressor.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/Batch-Image-Compressor"
+            link: "https://github.com/Nono7829/EquaSolve",
+            begin: "Sep 10, 2025",
+            end: "Sep 10, 2025"
         },
         {
             name: "Model3DtoFBX",
-            desc: "Un outil convertissant les modèles 3D en format FBX.",
-            img: "../img/Model3DtoFBX.png",
+            desc: "A tool that automatically converts 3D models into FBX format.",
+            img: "../img/model3dtofbx.jpg",
             stack: ["Python"],
-            link: "https://github.com/Nono7829/Model3DtoFBX"
+            link: "https://github.com/Nono7829/Model3DtoFBX",
+            begin: "Sep 13, 2025",
+            end: "Sep 13, 2025"
+        },
+        {
+            name: "Batch-Image-Compressor",
+            desc: "A tool to compress all images within a folder.",
+            img: "../img/bic.jpg",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/Batch-Image-Compressor",
+            begin: "Sep 17, 2025",
+            end: "Sep 17, 2025"
+        },
+        {
+            name: "HTMLCleaner",
+            desc: "A tool that cleans and optimizes HTML and CSS code for projects.",
+            img: "../img/htmlcleaner.jpg",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/HTMLCleaner",
+            begin: "Sep 21, 2025",
+            end: "Sep 21, 2025"
+        },
+        {
+            name: "BlendHelper",
+            desc: "A helper tool designed for the Blender application.",
+            img: "../img/blendhelper.jpg",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/BlendHelper",
+            begin: "Sep 25, 2025",
+            end: "Sep 25, 2025"
+        },
+        {
+            name: "ProjStruct",
+            desc: "A tool that displays the folder and file structure of a project.",
+            img: "../img/projstruct.jpg",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/ProjStruct",
+            begin: "Oct 26, 2025",
+            end: "Oct 26, 2025"
+        },
+        {
+            name: "PHP-INTERPRETER",
+            desc: "A PHP interpreter written entirely in Python.",
+            img: "../img/php-interpreter.png",
+            stack: ["HTML", "CSS", "JavaScript", "PHP"],
+            link: "https://github.com/Nono7829/PHP-INTERPRETER",
+            begin: "Feb 1, 2026",
+            end: "Feb 7, 2026"
         }
     ];
+
+    projectsData.sort((a, b) => new Date(a.begin) - new Date(b.begin));
+
 
     const gridContainer = document.getElementById('projects-grid');
 
@@ -112,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('project-card');
 
-            let stackHtml = '';
+           let stackHtml = '';
             project.stack.forEach(techName => {
                 const iconUrl = techIcons[techName];
                 if (iconUrl) {
@@ -120,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Injection HTML
             card.innerHTML = `
                 <div class="project-image">
                     <img src="${project.img}" alt="${project.name}">
@@ -132,7 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="project-content">
                     <h3>${project.name}</h3>
                     <p>${project.desc}</p>
-                    <a href="${project.link}" target="_blank" class="project-link">Voir le projet</a>
+                    <p class="project-meta">${project.begin} — ${project.end}</p>
+                    <a href="${project.link}" target="_blank" class="project-link">View Project</a>
                 </div>
             `;
 
