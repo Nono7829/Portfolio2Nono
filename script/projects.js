@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "FPJS",
             desc: "A FPS in full JavaScript, in 3D.",
-            img: "../img/fpjs.png",
+            img: "../img/FPJS.png",
             stack: ["HTML", "CSS", "JavaScript"],
             link: "https://github.com/Nono7829/FPJS",
             begin: "Aug 19, 2025",
