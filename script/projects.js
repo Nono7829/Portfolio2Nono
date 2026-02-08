@@ -119,6 +119,33 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "https://github.com/Nono7829/PHP-INTERPRETER",
             begin: "Feb 1, 2026",
             end: "Feb 7, 2026"
+        },
+        {
+            name: "FPJS",
+            desc: "A FPS in full JavaScript, in 3D.",
+            img: "../img/fpjs.png",
+            stack: ["HTML", "CSS", "JavaScript"],
+            link: "https://github.com/Nono7829/FPJS",
+            begin: "Aug 19, 2025",
+            end: "Oct 14, 2025"
+        },
+        {
+            name: "CASSE BRIQUE Python",
+            desc: "This game was realized for a project in NSI class, it's a replica of the famous Casse Brique game.",
+            img: "../img/casse_brique.png",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/CASSE-BRIQUE-Python",
+            begin: "Dec 2, 2025",
+            end: "Feb 3, 2026"
+        },
+        {
+            name: "Subway Surfer Py",
+            desc: "A replica of Subway Surfer, created in Python using the Pygame library.",
+            img: "../img/subway_surfer_py.png",
+            stack: ["Python"],
+            link: "https://github.com/Nono7829/Subway-Surfer-Py",
+            begin: "Oct 29, 2025",
+            end: "Nov 7, 2025"
         }
     ];
 
