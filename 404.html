@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* CSS Spécifique pour la 404 (directement ici pour simplifier) */
+        .error-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-cyan);
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            animation: glitch 1s infinite alternate;
+        }
+
+        .error-msg {
+            font-size: 1.5rem;
+            color: var(--text-white);
+            margin: 20px 0 40px 0;
+        }
+
+        .home-btn {
+            padding: 15px 30px;
+            background: var(--accent-cyan);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .home-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
+            100% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-msg">Oops! Looks like you are lost in the code.</p>
+        <a href="index.html" class="home-btn">Go Back Home</a>
+    </div>
+
+</body>
+</html>

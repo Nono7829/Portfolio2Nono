@@ -80,3 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// MENU MOBILE TOGGLE
+const menuToggle = document.getElementById('mobile-menu');
+const navList = document.querySelector('.nav-list');
+
+if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active'); // Affiche/Cache le menu
+        menuToggle.classList.toggle('is-active'); // Transforme le burger en X
+    });
+}
+
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+        navList.classList.remove('active');
+        menuToggle.classList.remove('is-active');
+    });
+});

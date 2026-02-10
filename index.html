@@ -5,18 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Nono - Home</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <nav>
-        <a href="pages\languages.html">Languages</a>
-        <a href="pages\projects.html">Projects</a>
-        <a href="pages\contact.html">Contacts</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    
+        <ul class="nav-list">
+            <li><a href="pages/languages.html">Languages</a></li>
+            <li><a href="pages/projects.html">Projects</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
     </nav>
 
     <main>
@@ -38,6 +49,26 @@
                     </div>
                 </div>
             </div>
+
+            <div class="about-mini">
+                <p>
+                    Student developer passionate about creating useful tools and interactive experiences. 
+                    I turn coffee into <span class="highlight">clean code</span>.
+                </p>
+                
+                <div class="about-actions">
+                    <a href="cv.pdf" download class="btn-cv">
+                        Download CV
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </a>
+                    
+                    <a href="pages/projects.html" class="btn-work">My Projects</a>
+                </div>
+            </div>
         </section>
 
         <section class="image-content">
@@ -46,6 +77,14 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>© 2026 Nono Portfolio. Crafted with <span class="highlight">Code & Passion</span>.</p>
+        <div class="footer-links">
+            <a href="https://github.com/Nono7829" target="_blank">GitHub</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
 
     <script src="script/script.js"></script>
 </body>
