@@ -13,23 +13,28 @@
     box-sizing: border-box;
 }
 
+/* --- BASE & LAYOUT (Fusionné) --- */
 body {
-    min-height: 100vh;      /* La page fait au moins la hauteur de l'écran */
-    display: flex;          /* Active le mode Flexbox */
-    flex-direction: column; /* Organise les éléments en colonne */
+    height: 100vh;          /* Fixe la hauteur */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background: radial-gradient(circle at top left, var(--bg-dark), var(--bg-darker));
     color: var(--text-white);
     font-family: 'Outfit', sans-serif;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;       /* Gardé tel quel */
 }
 
 main {
-    flex: 1; /* Le contenu principal prend tout l'espace disponible */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    height: 100%;
 }
 
+/* --- NAVIGATION DESKTOP --- */
 nav {
     position: absolute;
     top: 40px;
@@ -50,7 +55,7 @@ nav a {
     position: relative;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
     color: var(--accent-cyan);
     text-shadow: 0 0 12px rgba(0, 242, 255, 0.6);
 }
@@ -66,19 +71,11 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
-nav a:hover::after {
+nav a:hover::after, nav a.active::after {
     width: 100%;
 }
 
-main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    height: 100%;
-}
-
+/* --- HERO SECTION --- */
 .text-content {
     flex: 1;
     z-index: 2;
@@ -138,6 +135,7 @@ h1 {
     padding-left: 5px;
 }
 
+/* --- GOKU ANIMATION --- */
 .goku-container {
     position: relative;
     width: 500px;
@@ -192,6 +190,7 @@ h1 {
     }
 }
 
+/* --- MEDIA QUERIES TABLETTE/LAPTOP --- */
 @media (max-width: 1024px) {
     body {
         overflow-y: auto;
@@ -356,15 +355,6 @@ h1 {
 .bar.filled {
     background-color: var(--level-color);
     box-shadow: 0 0 8px var(--level-color);
-}
-
-nav a.active {
-    color: var(--accent-cyan);
-    text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
-}
-
-nav a.active::after {
-    width: 100%;
 }
 
 .skill-level-container::after {
@@ -564,7 +554,6 @@ nav a.active::after {
     max-width: 1200px;
 }
 
-/* --- PARTIE GAUCHE : CARTES SOCIALES --- */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -629,7 +618,6 @@ nav a.active::after {
     box-shadow: 0 0 10px var(--accent-cyan);
 }
 
-/* --- PARTIE DROITE : FORMULAIRE --- */
 .form-container {
     flex: 1;
     min-width: 300px;
@@ -692,21 +680,13 @@ nav a.active::after {
     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
 }
 
-/* Responsive pour mobile */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-    }
-}
-
 /* =========================================
    SECTION ABOUT (HOME)
    ========================================= */
-
-   .about-mini {
-    margin-top: 50px; /* Espace après le sous-titre */
+.about-mini {
+    margin-top: 50px;
     max-width: 500px;
-    animation: fadeIn 1s ease-out 0.5s backwards; /* Apparition en douceur */
+    animation: fadeIn 1s ease-out 0.5s backwards;
 }
 
 .about-mini p {
@@ -718,13 +698,11 @@ nav a.active::after {
     padding-left: 20px;
 }
 
-/* Conteneur des boutons */
 .about-actions {
     display: flex;
     gap: 20px;
 }
 
-/* Bouton CV (Style Principal) */
 .btn-cv {
     display: flex;
     align-items: center;
@@ -744,7 +722,7 @@ nav a.active::after {
 
 .btn-cv:hover {
     background: var(--accent-cyan);
-    color: #000; /* Texte noir sur fond cyan */
+    color: #000;
     box-shadow: 0 0 25px rgba(0, 242, 255, 0.6);
     transform: translateY(-3px);
 }
@@ -754,10 +732,9 @@ nav a.active::after {
 }
 
 .btn-cv:hover svg {
-    transform: translateY(3px); /* Petite animation de la flèche vers le bas */
+    transform: translateY(3px);
 }
 
-/* Bouton Work (Style Secondaire) */
 .btn-work {
     padding: 12px 25px;
     color: var(--text-white);
@@ -773,16 +750,14 @@ nav a.active::after {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Animation d'apparition simple */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ajustement Mobile */
 @media (max-width: 1024px) {
     .about-mini {
-        text-align: left; /* Ou center selon tes goûts */
+        text-align: left;
         margin: 40px auto 0;
         padding: 0 10px;
     }
@@ -795,15 +770,14 @@ nav a.active::after {
 /* =========================================
    FOOTER
    ========================================= */
-
-   footer {
+footer {
     width: 100%;
     padding: 30px 0;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4); /* Fond sombre et légèrement transparent */
-    backdrop-filter: blur(5px); /* Effet de flou derrière */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne fine de séparation */
-    margin-top: auto; /* Important pour coller le footer en bas */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
     color: var(--text-muted);
     font-size: 0.9rem;
     position: relative;
@@ -814,7 +788,7 @@ nav a.active::after {
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 25px; /* Espace entre les liens */
+    gap: 25px;
 }
 
 footer a {
@@ -826,11 +800,10 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--accent-cyan); /* Devient bleu néon au survol */
+    color: var(--accent-cyan);
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);
 }
 
-/* Petite ligne sous le lien au survol */
 footer a::after {
     content: '';
     position: absolute;
@@ -847,7 +820,7 @@ footer a:hover::after {
 }
 
 /* =========================================
-   MOBILE MENU (HAMBURGER)
+   MOBILE MENU (HAMBURGER) - UNIFIED
    ========================================= */
 
 /* Par défaut (PC), on cache le bouton hamburger */
@@ -865,95 +838,27 @@ footer a:hover::after {
     color: var(--text-white);
     font-weight: 800;
     font-size: 1.5rem;
-    margin-right: auto; /* Pousse le reste à droite */
+    margin-right: auto;
     letter-spacing: 2px;
 }
 
-/* --- VERSION MOBILE --- */
+/* --- VERSION MOBILE CORRIGÉE --- */
 @media (max-width: 768px) {
     nav {
-        justify-content: space-between;
-        padding: 20px;
-        position: relative;
-    }
-
-    .menu-toggle {
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        z-index: 1001; /* Au-dessus du menu */
-    }
-
-    .menu-toggle .bar {
-        height: 3px;
-        width: 100%;
-        background-color: var(--text-white);
-        border-radius: 10px;
-        transition: 0.3s;
-    }
-
-    /* Le menu caché par défaut sur mobile */
-    .nav-list {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Caché hors écran à droite */
-        width: 70%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        transition: 0.4s ease-in-out;
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0, 242, 255, 0.1);
-    }
-
-    .nav-list.active {
-        right: 0; /* On le ramène à l'écran */
-    }
-
-    .nav-list li {
-        margin: 25px 0;
-    }
-
-    .nav-list a {
-        font-size: 1.5rem;
-    }
-
-    /* Animation du Burger en Croix (X) */
-    .menu-toggle.is-active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-        background-color: var(--accent-cyan);
-    }
-
-    .menu-toggle.is-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.is-active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-        background-color: var(--accent-cyan);
-    }
-}
-
-/* --- VERSION MOBILE (Correction Alignement) --- */
-@media (max-width: 768px) {
-    nav {
-        display: flex; /* Assure que c'est bien du flexbox */
-        justify-content: space-between; /* Écarte les éléments au max */
-        align-items: center; /* Centre verticalement */
         padding: 20px;
         position: relative;
-        width: 100%; /* Prend toute la largeur */
+        width: 100%;
     }
 
     .logo {
-        /* Assure que le logo reste à gauche */
         margin-right: auto; 
+    }
+
+    .contact-container {
+        flex-direction: column;
     }
 
     .menu-toggle {
@@ -964,8 +869,6 @@ footer a:hover::after {
         height: 21px;
         cursor: pointer;
         z-index: 1001;
-        
-        /* C'EST CETTE LIGNE QUI FORCE LE HAMBURGER À DROITE : */
         margin-left: auto; 
     }
 
@@ -982,7 +885,7 @@ footer a:hover::after {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%; /* Largeur du menu déroulant */
+        width: 70%;
         height: 100vh;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
@@ -992,14 +895,22 @@ footer a:hover::after {
         transition: 0.4s ease-in-out;
         z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 242, 255, 0.1);
-        display: flex; /* Important pour centrer les liens */
+        display: flex;
     }
 
     .nav-list.active {
         right: 0;
     }
+    
+    .nav-list li {
+        margin: 25px 0;
+    }
 
-    /* Reste du style (animation croix...) */
+    .nav-list a {
+        font-size: 1.5rem;
+    }
+
+    /* Animation du Burger en Croix (X) */
     .menu-toggle.is-active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
         background-color: var(--accent-cyan);
