@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Dictionnaire des icônes pour la stack technique
     const techIcons = {
         "Python": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/500px-Python-logo-notext.svg.png",
         "HTML": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/langfr-330px-HTML5_logo_and_wordmark.svg.png",
@@ -11,181 +12,99 @@ document.addEventListener('DOMContentLoaded', () => {
         "Batch": "https://cdn-icons-png.flaticon.com/512/5261/5261229.png"
     };
 
-    const projectsData = [
-        {
-            name: "Patch FR - Yo-kai Watch Blasters 2",
-            desc: "My first project: a team translation patch for the game Yo-kai Watch Blasters 2 on Nintendo 3DS.",
-            img: "../img/b2.png",
-            stack: [],
-            link: "https://discord.gg/p2YraVYGBd",
-            begin: "Oct 23, 2023",
-            end: "Feb 22, 2026"
-        },
-        {
-            name: "Yo-Trad Tools",
-            desc: "Tools created to help with the Yo-kai Watch Blasters 2 translation patch, including a text editor and file management tools.",
-            img: "../img/yo-trad_tools.png",
-            stack: ["Batch", "Python"],
-            link: "https://github.com/YoTradWatchTeam/Yo-Trad-Tools",
-            begin: "Mar 12, 2025",
-            end: "Apr 9, 2025"
-        },
-        {
-            name: "Flappy Bird",
-            desc: "The first game I developed on Unity, a replica of the famous Flappy Bird with HD graphics.",
-            img: "../img/Flappy_Bird_icon.png",
-            stack: ["C#"],
-            link: "https://github.com/Nono7829/FlappyBird",
-            begin: "May 18, 2025",
-            end: "Jun 5, 2025"
-        },
-        {
-            name: "Flappy Bird JS",
-            desc: "My first game in JavaScript, created for a Computer Science school assignment.",
-            img: "../img/Flappy_Bird_icon.png",
-            stack: ["HTML", "CSS", "JavaScript"],
-            link: "https://github.com/Nono7829/Flappy-Bird-JS",
-            begin: "Jun 16, 2025",
-            end: "Jan 25, 2026"
-        },
-        {
-            name: "Zombie Kill",
-            desc: "My first game on Unreal Engine, developed during an internship at the Gaming Campus in La Défense.",
-            img: "../img/Zombie_Kill.png",
-            stack: ["BluePrint"],
-            link: "https://github.com/Nono7829/ZombieKill",
-            begin: "Jul 15, 2025",
-            end: "Jul 18, 2025"
-        },
-        {
-            name: "EquaSolve",
-            desc: "A tool designed to solve mathematical equations.",
-            img: "../img/EquaSolve.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/EquaSolve",
-            begin: "Sep 10, 2025",
-            end: "Sep 10, 2025"
-        },
-        {
-            name: "Model3DtoFBX",
-            desc: "A tool that automatically converts 3D models into FBX format.",
-            img: "../img/model3dtofbx.jpg",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/Model3DtoFBX",
-            begin: "Sep 13, 2025",
-            end: "Sep 13, 2025"
-        },
-        {
-            name: "Batch-Image-Compressor",
-            desc: "A tool to compress all images within a folder.",
-            img: "../img/bic.jpg",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/Batch-Image-Compressor",
-            begin: "Sep 17, 2025",
-            end: "Sep 17, 2025"
-        },
-        {
-            name: "HTMLCleaner",
-            desc: "A tool that cleans and optimizes HTML and CSS code for projects.",
-            img: "../img/htmlcleaner.jpg",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/HTMLCleaner",
-            begin: "Sep 21, 2025",
-            end: "Sep 21, 2025"
-        },
-        {
-            name: "BlendHelper",
-            desc: "A helper tool designed for the Blender application.",
-            img: "../img/blendhelper.jpg",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/BlendHelper",
-            begin: "Sep 25, 2025",
-            end: "Sep 25, 2025"
-        },
-        {
-            name: "ProjStruct",
-            desc: "A tool that displays the folder and file structure of a project.",
-            img: "../img/projstruct.jpg",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/ProjStruct",
-            begin: "Oct 26, 2025",
-            end: "Oct 26, 2025"
-        },
-        {
-            name: "PHP-INTERPRETER",
-            desc: "A PHP interpreter written entirely in Python.",
-            img: "../img/php-interpreter.png",
-            stack: ["HTML", "CSS", "JavaScript", "PHP"],
-            link: "https://github.com/Nono7829/PHP-INTERPRETER",
-            begin: "Feb 1, 2026",
-            end: "Feb 7, 2026"
-        },
-        {
-            name: "FPJS",
-            desc: "A FPS in full JavaScript, in 3D.",
-            img: "../img/fpjs.png",
-            stack: ["HTML", "CSS", "JavaScript"],
-            link: "https://github.com/Nono7829/FPJS",
-            begin: "Aug 19, 2025",
-            end: "Oct 14, 2025"
-        },
-        {
-            name: "CASSE BRIQUE Python",
-            desc: "This game was realized for a project in NSI class, it's a replica of the famous Casse Brique game.",
-            img: "../img/casse_brique.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/CASSE-BRIQUE-Python",
-            begin: "Dec 2, 2025",
-            end: "Feb 3, 2026"
-        },
-        {
-            name: "Subway Surfer Py",
-            desc: "A replica of Subway Surfer, created in Python using the Pygame library.",
-            img: "../img/subway_surfer_py.png",
-            stack: ["Python"],
-            link: "https://github.com/Nono7829/Subway-Surfer-Py",
-            begin: "Oct 29, 2025",
-            end: "Nov 7, 2025"
-        }
-    ];
+    // ID de votre Google Sheets (récupéré depuis l'URL de création)
+    const SHEET_ID = '1pT-YXqru2Em0ImGP2ogNvXi_FyEC_UUpDqy99sJy9DY';
+    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 
-    projectsData.sort((a, b) => new Date(a.begin) - new Date(b.begin));
+    async function loadProjects() {
+        try {
+            // Récupération des données depuis Google Sheets
+            const response = await fetch(SHEET_URL);
+            const text = await response.text();
+            
+            // Nettoyage de la réponse de Google pour obtenir un JSON valide
+            const jsonString = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1];
+            const data = JSON.parse(jsonString);
 
-
-    const gridContainer = document.getElementById('projects-grid');
-
-    if (gridContainer) {
-        projectsData.forEach(project => {
-            const card = document.createElement('div');
-            card.classList.add('project-card');
-
-           let stackHtml = '';
-            project.stack.forEach(techName => {
-                const iconUrl = techIcons[techName];
-                if (iconUrl) {
-                    stackHtml += `<img src="${iconUrl}" alt="${techName}" title="${techName}">`;
+// Fonction mise à jour pour utiliser l'API thumbnail de Google Drive
+            function getDirectImageUrl(url) {
+                if (url.includes("drive.google.com/file/d/")) {
+                    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                    if (match && match[1]) {
+                        // sz=w1000 permet de demander une image d'une largeur de 1000 pixels pour garder une bonne qualité
+                        return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+                    }
                 }
+                return url; 
+            }
+
+            // Transformation des lignes du tableau en objets exploitables
+            let projectsData = data.table.rows.map(row => {
+                let rawImgUrl = row.c[2]?.v || "";
+                
+                return {
+                    name: row.c[0]?.v || "",
+                    desc: row.c[1]?.v || "",
+                    img: getDirectImageUrl(rawImgUrl), // Conversion appliquée ici
+                    // On transforme la chaîne de texte (ex: "Batch, Python") en tableau Array
+                    stack: row.c[3]?.v ? row.c[3].v.split(',').map(s => s.trim()) : [],
+                    link: row.c[4]?.v || "",
+                    begin: row.c[5]?.v || "",
+                    end: row.c[6]?.v || ""
+                };
             });
 
-            // Injection HTML
-            card.innerHTML = `
-                <div class="project-image">
-                    <img src="${project.img}" alt="${project.name}">
-                    <div class="project-overlay">
-                        <div class="project-stack">
-                            ${stackHtml}
-                        </div>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3>${project.name}</h3>
-                    <p>${project.desc}</p>
-                    <p class="project-meta">${project.begin} — ${project.end}</p>
-                    <a href="${project.link}" target="_blank" class="project-link">View Project</a>
-                </div>
-            `;
+            // Tri par date (du plus ancien au plus récent)
+            projectsData.sort((a, b) => new Date(a.begin) - new Date(b.begin));
 
-            gridContainer.appendChild(card);
-        });
+            // Génération de l'affichage HTML
+            const gridContainer = document.getElementById('projects-grid');
+            if (gridContainer) {
+                // On s'assure que le container est vide avant de le remplir (utile si on rappelle la fonction)
+                gridContainer.innerHTML = ''; 
+
+                projectsData.forEach(project => {
+                    const card = document.createElement('div');
+                    card.classList.add('project-card');
+
+                    let stackHtml = '';
+                    project.stack.forEach(techName => {
+                        const iconUrl = techIcons[techName];
+                        if (iconUrl) {
+                            stackHtml += `<img src="${iconUrl}" alt="${techName}" title="${techName}">`;
+                        }
+                    });
+
+                    // Injection HTML de la carte projet
+                    card.innerHTML = `
+                        <div class="project-image">
+                            <img src="${project.img}" alt="${project.name}">
+                            <div class="project-overlay">
+                                <div class="project-stack">
+                                    ${stackHtml}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>${project.name}</h3>
+                            <p>${project.desc}</p>
+                            <p class="project-meta">${project.begin} — ${project.end}</p>
+                            <a href="${project.link}" target="_blank" class="project-link">View Project</a>
+                        </div>
+                    `;
+
+                    gridContainer.appendChild(card);
+                });
+            }
+        } catch (error) {
+            console.error("Erreur lors de la récupération des données du tableur :", error);
+            const gridContainer = document.getElementById('projects-grid');
+            if (gridContainer) {
+                gridContainer.innerHTML = `<p style="color: red;">Erreur de chargement des projets. Vérifiez que votre Google Sheets est bien partagé en "Tous les utilisateurs disposant du lien".</p>`;
+            }
+        }
     }
+
+    // Appel de la fonction pour charger et afficher les projets
+    loadProjects();
 });
