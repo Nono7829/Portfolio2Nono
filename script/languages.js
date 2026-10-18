@@ -3,47 +3,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsData = [
         {
             name: "Python",
-            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/500px-Python-logo-notext.svg.png",
+            img: "https://en.wikipedia.org/wiki/File:Python-logo-notext.svg",
             level: 4
         },
         {
             name: "HTML",
-            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/langfr-330px-HTML5_logo_and_wordmark.svg.png",
+            img: "https://en.wikipedia.org/wiki/File:HTML5_logo_and_wordmark.svg",
             level: 5
         },
         {
             name: "CSS",
-            img: "https://cdn-icons-png.flaticon.com/512/5968/5968242.png",
+            img: "https://en.wikipedia.org/wiki/File:Official_CSS_Logo.svg",
             level: 5
         },
         {
             name: "JavaScript",
-            img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+            img: "https://en.wikipedia.org/wiki/File:Logo_of_TC39.svg",
             level: 3
         },
         {
             name: "PHP",
-            img: "https://cdn-icons-png.flaticon.com/512/5968/5968332.png",
+            img: "https://en.wikipedia.org/wiki/File:PHP-logo.svg",
             level: 3
         },
         {
             name: "C#",
-            img: "https://img.icons8.com/color/512/c-sharp-logo.png",
+            img: "https://en.wikipedia.org/wiki/File:C_Sharp_Logo_2023.svg",
             level: 1
         },
         {
             name: "BluePrint",
-            img: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAiZAAZAA0",
+            img: "https://en.wikipedia.org/wiki/File:Unreal_Engine_Logo_(new_typeface).svg",
             level: 4
         },
         {
             name: "Batch",
-            img: "https://cdn-icons-png.flaticon.com/512/5261/5261229.png",
+            img: "https://en.wikipedia.org/wiki/File:Batch_file_icon.png",
             level: 2
         },
         {
             name: "C++",
-            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGxPIiZ-LfKsbyvmartjP6F-zVbCoLLvbi7MPa8puiZw&s",
+            img: "https://en.wikipedia.org/wiki/File:ISO_C++_Logo.svg",
             level: 2
         }
     ];
