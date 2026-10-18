@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "PHP",
             img: "https://cdn-icons-png.flaticon.com/512/5968/5968332.png",
-            level: 2
+            level: 3
         },
         {
             name: "C#",
@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Batch",
             img: "https://cdn-icons-png.flaticon.com/512/5261/5261229.png",
-            level: 1
+            level: 2
+        },
+        {
+            name: "C++",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGxPIiZ-LfKsbyvmartjP6F-zVbCoLLvbi7MPa8puiZw&s",
+            level: 2
         }
     ];
 
