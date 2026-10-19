@@ -3,47 +3,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsData = [
         {
             name: "Python",
-            img: "https://en.wikipedia.org/wiki/File:Python-logo-notext.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
             level: 4
         },
         {
             name: "HTML",
-            img: "https://en.wikipedia.org/wiki/File:HTML5_logo_and_wordmark.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
             level: 5
         },
         {
             name: "CSS",
-            img: "https://en.wikipedia.org/wiki/File:Official_CSS_Logo.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
             level: 5
         },
         {
             name: "JavaScript",
-            img: "https://en.wikipedia.org/wiki/File:Logo_of_TC39.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
             level: 3
         },
         {
             name: "PHP",
-            img: "https://en.wikipedia.org/wiki/File:PHP-logo.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
             level: 3
         },
         {
             name: "C#",
-            img: "https://en.wikipedia.org/wiki/File:C_Sharp_Logo_2023.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
             level: 1
         },
         {
             name: "BluePrint",
-            img: "https://en.wikipedia.org/wiki/File:Unreal_Engine_Logo_(new_typeface).svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original.svg",
             level: 4
         },
         {
             name: "Batch",
-            img: "https://en.wikipedia.org/wiki/File:Batch_file_icon.png",
+            img: "https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@master/icons/file_type_bat.svg",
             level: 2
         },
         {
             name: "C++",
-            img: "https://en.wikipedia.org/wiki/File:ISO_C++_Logo.svg",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
             level: 2
         }
     ];

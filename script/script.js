@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // =================================================================
-    // PARTIE 1 : Animation des mots défilants (Stop & Go auto-calculé)
-    // =================================================================
-    
     const box = document.querySelector('.scrolling-words-box');
     
     // On vérifie si l'élément existe pour éviter des erreurs
@@ -34,14 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Position Y négative (on monte)
             const yPosition = i * itemHeight;
 
-            // Génération de l'étape : Reste à la position Y, puis commence à bouger
             keyframesCSS += `
                 ${startPercent.toFixed(2)}%, ${pauseEndPercent.toFixed(2)}% { transform: translateY(-${yPosition}em); }
             `;
         }
         
-        // Étape finale (100%) : Arrivée sur le clone (visuellement identique au départ)
-        keyframesCSS += `
+         keyframesCSS += `
             100% { transform: translateY(-${totalWords * itemHeight}em); }
         }`;
 
@@ -56,22 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =================================================================
-    // PARTIE 2 : Effet de parallaxe souris sur l'image (Tilt)
+    // Effet de parallaxe souris sur l'image (Tilt)
     // =================================================================
     
     const tiltContainer = document.querySelector('.js-tilt');
 
     if (tiltContainer) {
         document.addEventListener('mousemove', (e) => {
-            // On calcule la position de la souris par rapport au centre de l'écran
-            // Les valeurs vont de -1 (gauche/haut) à +1 (droite/bas)
             const xNormalized = (e.clientX / window.innerWidth) * 2 - 1;
             const yNormalized = (e.clientY / window.innerHeight) * 2 - 1;
 
-            // Intensité du mouvement (plus le chiffre est grand, plus ça bouge)
-            const movementStrength = 25; // ex: 25 pixels max de déplacement
+            // Intensité du mouvement
+            const movementStrength = 30;
 
-            // Inversion de l'axe X (-xNormalized) pour un effet plus naturel "en opposition"
+            // Inversion de l'axe X (-xNormalized)
             const moveX = -xNormalized * movementStrength;
             const moveY = yNormalized * movementStrength;
 
@@ -81,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// MENU MOBILE TOGGLE
 const menuToggle = document.getElementById('mobile-menu');
 const navList = document.querySelector('.nav-list');
 
@@ -92,7 +83,6 @@ if (menuToggle && navList) {
     });
 }
 
-// Fermer le menu quand on clique sur un lien
 document.querySelectorAll('.nav-list a').forEach(link => {
     link.addEventListener('click', () => {
         navList.classList.remove('active');
