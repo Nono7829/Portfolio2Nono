@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const SHEET_ID = '1pT-YXqru2Em0ImGP2ogNvXi_FyEC_UUpDqy99sJy9DY';
-    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&t=${new Date().getTime()}`;
 
     async function loadProjects() {
         try {
@@ -23,23 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const jsonString = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1];
             const data = JSON.parse(jsonString);
 
-            function getDirectImageUrl(url) {
-                if (url.includes("drive.google.com/file/d/")) {
-                    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-                    if (match && match[1]) {
-                        return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
-                    }
-                }
-                return url;
-            }
-
             let projectsData = data.table.rows.map(row => {
-                let rawImgUrl = row.c[2]?.v || "";
-
                 return {
                     name: row.c[0]?.v || "",
                     desc: row.c[1]?.v || "",
-                    img: getDirectImageUrl(rawImgUrl),
+                    rawMediaUrl: row.c[2]?.v || "", 
                     stack: row.c[3]?.v ? row.c[3].v.split(',').map(s => s.trim()) : [],
                     link: row.c[4]?.v || "",
                     begin: row.c[5]?.v || "",
@@ -67,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     card.innerHTML = `
                         <div class="project-image">
-                            <img src="${project.img}" alt="${project.name}">
                             <div class="project-overlay">
                                 <div class="project-stack">
                                     ${stackHtml}
@@ -82,14 +69,64 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `;
 
+                    const projectImageContainer = card.querySelector('.project-image');
+                    let rawUrl = project.rawMediaUrl ? project.rawMediaUrl.trim() : "";
+
+                    if (rawUrl) {
+                        const createImg = (url, alt) => {
+                            const img = document.createElement('img');
+                            img.className = 'media-element';
+                            img.src = url;
+                            img.alt = alt;
+                            img.style.cssText = "width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;";
+                            return img;
+                        };
+
+                        const createVideo = (url) => {
+                            const video = document.createElement('video');
+                            video.className = 'media-element';
+                            video.src = url;
+                            video.autoplay = true;
+                            video.loop = true;
+                            video.muted = true;
+                            video.playsInline = true;
+                            video.style.cssText = "width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;";
+                            
+                            video.addEventListener('canplay', () => {
+                                video.play().catch(e => console.warn("Lecture auto bloquée :", e));
+                            });
+                            return video;
+                        };
+
+                        // CAS 1 : C'est un lien Google Drive (partagé)
+                        if (rawUrl.includes("drive.google.com")) {
+                            const match = rawUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                            if (match && match[1]) {
+                                // Lien direct optimisé pour les images Google Drive
+                                const directDriveUrl = `https://lh3.googleusercontent.com/d/${match[1]}`;
+                                projectImageContainer.prepend(createImg(directDriveUrl, project.name));
+                            }
+                        } 
+                        // CAS 2 : C'est une vidéo locale (.mp4 ou .webm)
+                        else if (rawUrl.toLowerCase().endsWith('.mp4') || rawUrl.toLowerCase().endsWith('.webm')) {
+                            projectImageContainer.prepend(createVideo(`../vid/${rawUrl}`));
+                        } 
+                        // CAS 3 : C'est une image locale (ex: mon-image.png) ou un autre lien direct
+                        else {
+                            // Si c'est juste le nom du fichier, on préfixe par ../vid/, sinon on prend l'URL telle quelle
+                            const finalImgPath = rawUrl.startsWith('http') ? rawUrl : `../vid/${rawUrl}`;
+                            projectImageContainer.prepend(createImg(finalImgPath, project.name));
+                        }
+                    }
+
                     gridContainer.appendChild(card);
                 });
             }
         } catch (error) {
-            console.error("Erreur lors de la récupération des données du tableur :", error);
+            console.error("Erreur lors de la récupération des données :", error);
             const gridContainer = document.getElementById('projects-grid');
             if (gridContainer) {
-                gridContainer.innerHTML = `<p style="color: red;">Erreur de chargement des projets. Vérifiez que votre Google Sheets est bien partagé en "Tous les utilisateurs disposant du lien".</p>`;
+                gridContainer.innerHTML = `<p style="color: red;">Erreur de chargement des projets.</p>`;
             }
         }
     }

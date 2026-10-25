@@ -24,17 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "PHP",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-            level: 3
+            level: 4
         },
         {
             name: "C#",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
-            level: 1
+            level: 2
         },
         {
             name: "BluePrint",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original.svg",
-            level: 4
+            level: 3
         },
         {
             name: "Batch",
